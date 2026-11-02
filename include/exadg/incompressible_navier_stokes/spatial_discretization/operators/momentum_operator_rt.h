@@ -679,6 +679,9 @@ public:
 
   ~RaviartThomasOperator()
   {
+    // Nothing to report if reinit() was never called
+    if(dof_handler == nullptr)
+      return;
     const MPI_Comm comm = dof_handler->get_mpi_communicator();
     if(not this->is_test and timings[0] > 0)
     {
