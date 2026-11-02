@@ -242,7 +242,8 @@ private:
         {
           f.open(filename.c_str(), std::ios::trunc);
           f << std::endl
-            << "# Time                Mean velocity [m/s] Body force [m/s^2]" << std::endl;
+            << "# Time                Flow rate [m^3/s]   Body force [m/s^2]" << std::endl
+            << "# (body force applied during the time step ending at Time)" << std::endl;
 
           clear_files = false;
         }
