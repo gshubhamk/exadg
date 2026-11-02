@@ -3336,7 +3336,7 @@ private:
     }
     else
     {
-      // TODO: Do we include the cross terms between the the two cells that
+      // TODO: Do we include the cross terms between the two cells that
       // share face DoFs (as the RT space is continuous in normal direction),
       // and the associated Dirichlet values? Check this carefully.
       VectorizedArray<Number> diagonal[dofs_per_cell];
