@@ -92,6 +92,10 @@ public:
   get_parameters_for_serialization(bool const print_parameters = false) const
   {
     // Store complete state of the `FlowRateController`.
+    // `f_proportional` is not stored: it only depends on the current flow
+    // rate and is recomputed before the first time step after a restart, when
+    // the postprocessing at time_step_number == 1 calls `update_body_force()`
+    // with zero time step size (leaving `f` and `f_damping` unchanged).
     std::array<double, 8> parameters{{f,
                                       f_damping,
                                       time_old,
