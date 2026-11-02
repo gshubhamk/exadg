@@ -59,7 +59,10 @@ public:
     flow_rate              = flow_rate_in;
     double const time_step = time - time_old;
 
-    // use an PI-controller with damping (D) to asymptotically reach the desired target flow rate
+    // use a PI-controller with derivative term (D) to asymptotically reach the
+    // desired target flow rate. Note that the flow rate responds to the body
+    // force via dQ/dt ~ f, so the P term damps the oscillations of the I term,
+    // whereas the D term acts like added inertia.
 
     // dimensional analysis: [k_I] = 1/(m^2 s^2) -> k_I = const * u_b^2 / H^4
     double const C_I = 100.0;
