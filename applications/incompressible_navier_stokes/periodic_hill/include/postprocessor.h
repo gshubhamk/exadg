@@ -260,6 +260,8 @@ private:
         accumulated_flow_rate_results.clear();
       }
 
+      // the body force is the one applied during the time step ending at
+      // `time`, since `update_body_force()` is called after this function
       accumulated_flow_rate_results.push_back(
         {{time, value, flow_rate_controller.get_body_force()}});
     }
