@@ -55,6 +55,10 @@ bool
 TimeControlStatistics::write_preliminary_results(double const           time,
                                                  types::time_step const time_step_number) const
 {
+  // nothing is accumulated if the statistics are not active
+  if(not time_control_data_statistics.time_control_data.is_active)
+    return false;
+
   if(Utilities::is_valid_timestep(
        time_control_data_statistics.write_preliminary_results_every_nth_time_step))
   {
